@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SMSNotification.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="port" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="baudrate" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">19200</Value>
+    </Setting>
+    <Setting Name="timeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="interval" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="msg" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Terima kasih atas pembelian produk Bintang Sobo dg No Transaksi @Id pada tanggal @TrxDate. Info dan pemesanan: 081322072253</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

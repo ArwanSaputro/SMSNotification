@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CancelOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeliverSignature" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLogInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLogInResult" type="tns:ArrayOfSurveys" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSurveys">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Surveys" nillable="true" type="tns:Surveys" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Surveys">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TRACKINGTIME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LATITUDE" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LONGTITUDE" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE1" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE2" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE3" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE4" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SALESID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AREAID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROVINCEID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AREA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="STATUSORDER" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProduct">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductResult" type="tns:ArrayOfProducts" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProducts">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Products" nillable="true" type="tns:Products" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Products">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTransactionList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalesLogin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransactionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionListResult" type="tns:ArrayOfTransactionList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionList" nillable="true" type="tns:TransactionList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReturnProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SalesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Signature" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPosition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalesId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Longtitude" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPositionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPositionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSurvey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoreName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StoreOwner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StoreType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="image1" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="image2" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="image3" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="image4" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="QRCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSurveyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertSurveyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalesId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTaskResult" type="tns:ArrayOfSurveys" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SingleDataResult" type="tns:ArrayOfSurveys" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QRCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SalesId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScanResult" type="tns:ArrayOfSurveys" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QRCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SalesId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaskDetailResult" type="tns:ArrayOfSurveys" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSmsNotificationStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSmsNotificationStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetSmsNotificationStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllTransaction">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTransactionResult" type="tns:ArrayOfTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Transaction" nillable="true" type="tns:Transaction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Transaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TRXDATE" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Signature" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="detail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CancelOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelOrder" />
+  </wsdl:message>
+  <wsdl:message name="CancelOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ReturTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLogInSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLogIn" />
+  </wsdl:message>
+  <wsdl:message name="GetLogInSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransactionList" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransactionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnProductSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnProduct" />
+  </wsdl:message>
+  <wsdl:message name="ReturnProductSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserPositionSoapIn">
+    <wsdl:part name="parameters" element="tns:UserPosition" />
+  </wsdl:message>
+  <wsdl:message name="UserPositionSoapOut">
+    <wsdl:part name="parameters" element="tns:UserPositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSurveySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSurvey" />
+  </wsdl:message>
+  <wsdl:message name="InsertSurveySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTask" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="SingleDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SingleData" />
+  </wsdl:message>
+  <wsdl:message name="SingleDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SingleDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScanSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScan" />
+  </wsdl:message>
+  <wsdl:message name="GetScanSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaskDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetSmsNotificationStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetSmsNotificationStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetSmsNotificationStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetSmsNotificationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTransaction" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertTransaction" />
+  </wsdl:message>
+  <wsdl:message name="InsertTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertTransactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="CancelOrder">
+      <wsdl:input message="tns:CancelOrderSoapIn" />
+      <wsdl:output message="tns:CancelOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturTransaction">
+      <wsdl:input message="tns:ReturTransactionSoapIn" />
+      <wsdl:output message="tns:ReturTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogIn">
+      <wsdl:input message="tns:GetLogInSoapIn" />
+      <wsdl:output message="tns:GetLogInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input message="tns:GetProductSoapIn" />
+      <wsdl:output message="tns:GetProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionList">
+      <wsdl:input message="tns:GetTransactionListSoapIn" />
+      <wsdl:output message="tns:GetTransactionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnProduct">
+      <wsdl:input message="tns:ReturnProductSoapIn" />
+      <wsdl:output message="tns:ReturnProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPosition">
+      <wsdl:input message="tns:UserPositionSoapIn" />
+      <wsdl:output message="tns:UserPositionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSurvey">
+      <wsdl:input message="tns:InsertSurveySoapIn" />
+      <wsdl:output message="tns:InsertSurveySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTask">
+      <wsdl:input message="tns:GetAllTaskSoapIn" />
+      <wsdl:output message="tns:GetAllTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleData">
+      <wsdl:input message="tns:SingleDataSoapIn" />
+      <wsdl:output message="tns:SingleDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScan">
+      <wsdl:input message="tns:GetScanSoapIn" />
+      <wsdl:output message="tns:GetScanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskDetail">
+      <wsdl:input message="tns:GetTaskDetailSoapIn" />
+      <wsdl:output message="tns:GetTaskDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSmsNotificationStatus">
+      <wsdl:input message="tns:SetSmsNotificationStatusSoapIn" />
+      <wsdl:output message="tns:SetSmsNotificationStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransaction">
+      <wsdl:input message="tns:GetAllTransactionSoapIn" />
+      <wsdl:output message="tns:GetAllTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTransaction">
+      <wsdl:input message="tns:InsertTransactionSoapIn" />
+      <wsdl:output message="tns:InsertTransactionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CancelOrder">
+      <soap:operation soapAction="http://tempuri.org/CancelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturTransaction">
+      <soap:operation soapAction="http://tempuri.org/ReturTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogIn">
+      <soap:operation soapAction="http://tempuri.org/GetLogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionList">
+      <soap:operation soapAction="http://tempuri.org/GetTransactionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnProduct">
+      <soap:operation soapAction="http://tempuri.org/ReturnProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPosition">
+      <soap:operation soapAction="http://tempuri.org/UserPosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSurvey">
+      <soap:operation soapAction="http://tempuri.org/InsertSurvey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTask">
+      <soap:operation soapAction="http://tempuri.org/GetAllTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleData">
+      <soap:operation soapAction="http://tempuri.org/SingleData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScan">
+      <soap:operation soapAction="http://tempuri.org/GetScan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskDetail">
+      <soap:operation soapAction="http://tempuri.org/GetTaskDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSmsNotificationStatus">
+      <soap:operation soapAction="http://tempuri.org/SetSmsNotificationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransaction">
+      <soap:operation soapAction="http://tempuri.org/GetAllTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTransaction">
+      <soap:operation soapAction="http://tempuri.org/InsertTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CancelOrder">
+      <soap12:operation soapAction="http://tempuri.org/CancelOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturTransaction">
+      <soap12:operation soapAction="http://tempuri.org/ReturTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogIn">
+      <soap12:operation soapAction="http://tempuri.org/GetLogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap12:operation soapAction="http://tempuri.org/GetProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionList">
+      <soap12:operation soapAction="http://tempuri.org/GetTransactionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnProduct">
+      <soap12:operation soapAction="http://tempuri.org/ReturnProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPosition">
+      <soap12:operation soapAction="http://tempuri.org/UserPosition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSurvey">
+      <soap12:operation soapAction="http://tempuri.org/InsertSurvey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTask">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleData">
+      <soap12:operation soapAction="http://tempuri.org/SingleData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScan">
+      <soap12:operation soapAction="http://tempuri.org/GetScan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetTaskDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSmsNotificationStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetSmsNotificationStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransaction">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTransaction">
+      <soap12:operation soapAction="http://tempuri.org/InsertTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://ikondev.zapto.org:9020/BSOB/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://ikondev.zapto.org:9020/BSOB/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
