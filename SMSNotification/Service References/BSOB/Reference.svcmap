@@ -22,8 +22,8 @@
     <MetadataSource Address="http://ikondev.zapto.org:9020/BSOB/Service1.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="dcbe792e-3ef7-456f-bd1c-c2c2dcd55ed3" SourceId="1" SourceUrl="http://ikondev.zapto.org:9020/BSOB/Service1.asmx?wsdl" />
-    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="ee50ad7d-fb84-4b48-a0d3-b351ea9cf710" SourceId="1" SourceUrl="http://ikondev.zapto.org:9020/BSOB/Service1.asmx?disco" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e9a63127-0abc-4bed-9b6d-749a2b6869cc" SourceId="1" SourceUrl="http://ikondev.zapto.org:9020/BSOB/Service1.asmx?wsdl" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="ac0a3c53-d56e-4bf1-8f05-0c6c04e9b627" SourceId="1" SourceUrl="http://ikondev.zapto.org:9020/BSOB/Service1.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -98,21 +98,22 @@
       <s:complexType name="Products">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetTransactionList">
+      <s:element name="GetReportList">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="SalesLogin" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetTransactionListResponse">
+      <s:element name="GetReportListResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionListResult" type="tns:ArrayOfTransactionList" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportListResult" type="tns:ArrayOfTransactionList" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -126,6 +127,35 @@
           <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailResult" type="tns:ArrayOfTransactionDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionDetail" nillable="true" type="tns:TransactionDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUMMARY" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="ReturnProduct">
@@ -262,6 +292,116 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SMSQueuing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSQueuingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SMSQueuingResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReqDeliveryDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderDetails" type="tns:ArrayOfOrderDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderDetails" nillable="true" type="tns:OrderDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertOrderResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStoreByQRCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QRCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStoreByQRCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStoreByQRCodeResult" type="tns:Stores" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Stores">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AREAID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LATITUDE" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LONGITUDE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetReplyStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReplyStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetReplyStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSGetAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="SMSGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SMSGetAllResult" type="tns:ArrayOfSMS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSMS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMS" nillable="true" type="tns:SMS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MESSAGE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RECEIVEDDATE" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAllTransaction">
         <s:complexType />
       </s:element>
@@ -330,11 +470,17 @@
   <wsdl:message name="GetProductSoapOut">
     <wsdl:part name="parameters" element="tns:GetProductResponse" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionListSoapIn">
-    <wsdl:part name="parameters" element="tns:GetTransactionList" />
+  <wsdl:message name="GetReportListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportList" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionListSoapOut">
-    <wsdl:part name="parameters" element="tns:GetTransactionListResponse" />
+  <wsdl:message name="GetReportListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailResponse" />
   </wsdl:message>
   <wsdl:message name="ReturnProductSoapIn">
     <wsdl:part name="parameters" element="tns:ReturnProduct" />
@@ -384,6 +530,36 @@
   <wsdl:message name="SetSmsNotificationStatusSoapOut">
     <wsdl:part name="parameters" element="tns:SetSmsNotificationStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="SMSQueuingSoapIn">
+    <wsdl:part name="parameters" element="tns:SMSQueuing" />
+  </wsdl:message>
+  <wsdl:message name="SMSQueuingSoapOut">
+    <wsdl:part name="parameters" element="tns:SMSQueuingResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertOrder" />
+  </wsdl:message>
+  <wsdl:message name="InsertOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreByQRCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStoreByQRCode" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreByQRCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStoreByQRCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetReplyStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetReplyStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetReplyStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetReplyStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SMSGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:SMSGetAll" />
+  </wsdl:message>
+  <wsdl:message name="SMSGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:SMSGetAllResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAllTransactionSoapIn">
     <wsdl:part name="parameters" element="tns:GetAllTransaction" />
   </wsdl:message>
@@ -413,9 +589,13 @@
       <wsdl:input message="tns:GetProductSoapIn" />
       <wsdl:output message="tns:GetProductSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionList">
-      <wsdl:input message="tns:GetTransactionListSoapIn" />
-      <wsdl:output message="tns:GetTransactionListSoapOut" />
+    <wsdl:operation name="GetReportList">
+      <wsdl:input message="tns:GetReportListSoapIn" />
+      <wsdl:output message="tns:GetReportListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetail">
+      <wsdl:input message="tns:GetReportDetailSoapIn" />
+      <wsdl:output message="tns:GetReportDetailSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ReturnProduct">
       <wsdl:input message="tns:ReturnProductSoapIn" />
@@ -448,6 +628,26 @@
     <wsdl:operation name="SetSmsNotificationStatus">
       <wsdl:input message="tns:SetSmsNotificationStatusSoapIn" />
       <wsdl:output message="tns:SetSmsNotificationStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSQueuing">
+      <wsdl:input message="tns:SMSQueuingSoapIn" />
+      <wsdl:output message="tns:SMSQueuingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrder">
+      <wsdl:input message="tns:InsertOrderSoapIn" />
+      <wsdl:output message="tns:InsertOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreByQRCode">
+      <wsdl:input message="tns:GetStoreByQRCodeSoapIn" />
+      <wsdl:output message="tns:GetStoreByQRCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetReplyStatus">
+      <wsdl:input message="tns:SetReplyStatusSoapIn" />
+      <wsdl:output message="tns:SetReplyStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSGetAll">
+      <wsdl:input message="tns:SMSGetAllSoapIn" />
+      <wsdl:output message="tns:SMSGetAllSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAllTransaction">
       <wsdl:input message="tns:GetAllTransactionSoapIn" />
@@ -496,8 +696,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionList">
-      <soap:operation soapAction="http://tempuri.org/GetTransactionList" style="document" />
+    <wsdl:operation name="GetReportList">
+      <soap:operation soapAction="http://tempuri.org/GetReportList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetail">
+      <soap:operation soapAction="http://tempuri.org/GetReportDetail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -577,6 +786,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SMSQueuing">
+      <soap:operation soapAction="http://tempuri.org/SMSQueuing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrder">
+      <soap:operation soapAction="http://tempuri.org/InsertOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreByQRCode">
+      <soap:operation soapAction="http://tempuri.org/GetStoreByQRCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReplyStatus">
+      <soap:operation soapAction="http://tempuri.org/SetReplyStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSGetAll">
+      <soap:operation soapAction="http://tempuri.org/SMSGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllTransaction">
       <soap:operation soapAction="http://tempuri.org/GetAllTransaction" style="document" />
       <wsdl:input>
@@ -634,8 +888,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionList">
-      <soap12:operation soapAction="http://tempuri.org/GetTransactionList" style="document" />
+    <wsdl:operation name="GetReportList">
+      <soap12:operation soapAction="http://tempuri.org/GetReportList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetReportDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -708,6 +971,51 @@
     </wsdl:operation>
     <wsdl:operation name="SetSmsNotificationStatus">
       <soap12:operation soapAction="http://tempuri.org/SetSmsNotificationStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSQueuing">
+      <soap12:operation soapAction="http://tempuri.org/SMSQueuing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrder">
+      <soap12:operation soapAction="http://tempuri.org/InsertOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreByQRCode">
+      <soap12:operation soapAction="http://tempuri.org/GetStoreByQRCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReplyStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetReplyStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSGetAll">
+      <soap12:operation soapAction="http://tempuri.org/SMSGetAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

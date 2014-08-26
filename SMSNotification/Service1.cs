@@ -29,6 +29,7 @@ namespace SMSNotification
         private int timeout = Properties.Settings.Default.timeout;
         private string strMessage = Properties.Settings.Default.msg;
         private GsmCommMain Gsm;
+        private BSOB.Products[] prods = null;
 
         protected System.Timers.Timer timer1 = new System.Timers.Timer();
         protected string errorLog = Path.GetDirectoryName(Application.ExecutablePath) + "\\ErrorLog.txt";
@@ -58,6 +59,184 @@ namespace SMSNotification
 
         private string sLogFormat;
         private string sErrorTime;
+
+
+        public void ProcessAllMessage()
+        {
+            BSOB.SMS[] allSms = bsob.SMSGetAll();
+
+            foreach (BSOB.SMS sms in allSms)
+            {
+                Order(sms);
+                bsob.SetReplyStatus(sms.ID);
+            }
+        }
+
+        private void Order(BSOB.SMS sms)
+        {
+            string msg = sms.MESSAGE;
+
+            string[] msgSplit = msg.Split(new char[] { '#' });
+
+            if (msgSplit[0].ToString().ToLower().StartsWith("pesan"))
+            {
+                string QRCode = msgSplit[1].ToString().ToLower();
+                string StoreId = "";
+
+                if (!ValidateQRCode(QRCode, out StoreId))
+                {
+                    SendSms(sms.PHONENO, "Toko anda belum terdaftar.");
+                    //send sms invalid qrcode..
+                    return;
+                }
+                DateTime deliveryDate = new DateTime();
+                string strdeliveryDate = msgSplit[2].ToString();
+
+                if (!ValidateDeliveryDate(strdeliveryDate, out deliveryDate))
+                {
+                    SendSms(sms.PHONENO, "Format tanggal salah. Silakan gunakan format tgl/bln/thn");
+                    //send sms wrong format date..
+                    return;
+                }
+
+
+                BSOB.OrderDetails[] orderDetail = null;
+
+                if (!ValidateOrderDetails(msgSplit, out orderDetail))
+                {
+                    string strListProduct = "";
+
+                    BSOB.Products[] prods = bsob.GetProduct();
+                    foreach (BSOB.Products prod in prods)
+                    {
+                        strListProduct += prod.PRODUCTCODE + ", ";
+                    }
+                    strListProduct = strListProduct.Substring(0, strListProduct.Length - 2);
+
+                    SendSms(sms.PHONENO, "Kode produk tidak terdaftar. Kode produk yang benar adalah " + strListProduct);
+                    //send error product not exists..
+                    return;
+                }
+
+                string OrderId = "";
+                bsob.InsertOrder(StoreId, sms.PHONENO, deliveryDate, orderDetail, out OrderId);
+                SendSms(sms.PHONENO, "Terima kasih anda telah melakukan pemesanan produk Bintang Sobo. Data pemesanan anda telah kami simpan dengan No " + OrderId);
+            }
+            else
+            {
+                //send error message not valid..
+                SendSms(sms.PHONENO, "Input salah. Format pemesanan: pesan#qrcode#tgl/bln/thn#kodeproduk1#jumlah1#kodeproduk2#jumlah2#kodeproduk3#jumlah3. Contoh: pesan#TokoABC#01/08/2014#TK300A#10");
+            }
+        }
+
+
+        private bool ValidateOrderDetails(string[] msgSplit, out BSOB.OrderDetails[] orderDetail)
+        {
+            try
+            {
+                                
+                int totalProduct = (msgSplit.Length - 3) / 2;
+
+                orderDetail = new BSOB.OrderDetails[totalProduct];
+                int i = 0;
+                for (int idx = 3; idx < msgSplit.Length; idx++)
+                {
+                    if (msgSplit[idx].ToString().ToLower() != "")
+                    {
+                        string ProductId = "";
+
+                        string ProductCode = msgSplit[idx].ToString().ToLower();
+                        if (IsExistingProduct(ProductCode, out ProductId))
+                        {
+                            orderDetail[i] = new BSOB.OrderDetails();
+                            orderDetail[i].PRODUCTID = ProductId;
+
+                            orderDetail[i].PRODUCTCODE = ProductCode;
+
+                            idx += 1;
+                            orderDetail[i].QUANTITY = Convert.ToInt32(msgSplit[idx].ToString());
+
+                            i += 1;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                orderDetail = null;
+                return false;
+            }
+        }
+
+        public bool IsExistingProduct(string ProductCode, out string ProductId)
+        {
+            ProductId = "";
+            try
+            {
+                foreach (BSOB.Products prod in prods)
+                {
+                    if (prod.PRODUCTCODE.ToLower() == ProductCode.ToLower())
+                    {
+                        ProductId = prod.ID;
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private bool ValidateQRCode(string QRCode, out string StoreId)
+        {
+            StoreId = "";
+            try
+            {
+                BSOB.Stores store = bsob.GetStoreByQRCode(QRCode);
+
+                if (store != null)
+                {
+                    StoreId = store.ID;
+                    return true;
+                }
+                else
+                    return false;                
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+        private bool ValidateDeliveryDate(string strDate, out DateTime deliveryDate)
+        {
+            deliveryDate = DateTime.MinValue;
+            string[] strSplitDate = strDate.Split(new char[] { '/' });
+            try
+            {
+                int day = Convert.ToInt32(strSplitDate[0].ToString());
+                int month = Convert.ToInt32(strSplitDate[1].ToString());
+                int year = Convert.ToInt32(strSplitDate[2].ToString());
+                deliveryDate = new DateTime(year, month, day);
+
+                return true;
+            }
+            catch(Exception ex)
+            {                
+                return false;
+            }
+        }
 
         public void LogError(string sErrMsg)
         {
@@ -93,6 +272,7 @@ namespace SMSNotification
                 if (Connect(port, baudrate, timeout))
                 {
 
+                    prods = bsob.GetProduct();
                     BSOB.Transaction[] transactions = bsob.GetAllTransaction();
                     
                     foreach (BSOB.Transaction transaction in transactions)
@@ -107,15 +287,20 @@ namespace SMSNotification
 
                         bsob.SetSmsNotificationStatus(Id);
                     }
-                    //GetAllMessagesFromAllStorage();
-                    Gsm.Close();
+                    
+                    GetAllMessagesFromAllStorage();
+
+                    ProcessAllMessage();
+
+                    if (Gsm.IsOpen())
+                        Gsm.Close();
                 }
                 
             }
             catch (Exception ex)
             {
                 LogError(ex.Message);
-
+                Gsm.Close();
             }
             finally
             {
@@ -207,10 +392,19 @@ namespace SMSNotification
                             // Received message
                             SmsDeliverPdu data = (SmsDeliverPdu)pdu;
 
-                            string msg = data.UserDataText;
-                            DateTime receive_date = data.SCTimestamp.ToDateTime();                
-                            string phone_num = data.OriginatingAddress;
+                            string sim_msg = data.UserDataText;
+                            DateTime sim_receive_date = data.SCTimestamp.ToDateTime();                
+                            string sim_num = data.OriginatingAddress;
 
+
+                            
+                            //BSOB.SMS sms = new BSOB.SMS();
+                            //sms.MESSAGE = sim_msg;
+                            //sms.PHONENO = sim_num;
+                            //sms.RECEIVEDDATE = sim_receive_date;
+                            //Order(sms);
+
+                            bsob.SMSQueuing(sim_msg, sim_num, sim_receive_date);         
                             //insert statement here
                         }
                     }
@@ -228,10 +422,17 @@ namespace SMSNotification
                             // Received message
                             SmsDeliverPdu data = (SmsDeliverPdu)pdu;
 
-                            string pesan = data.UserDataText;
-                            DateTime tgl_terima = data.SCTimestamp.ToDateTime();                            
+                            string phone_msg = data.UserDataText;
+                            DateTime phone_received_date = data.SCTimestamp.ToDateTime();                            
                             string phone_num = data.OriginatingAddress;
 
+                            //BSOB.SMS sms = new BSOB.SMS();
+                            //sms.MESSAGE = phone_msg;
+                            //sms.PHONENO = phone_num;
+                            //sms.RECEIVEDDATE = phone_received_date;
+                            //Order(sms);
+                           
+                            bsob.SMSQueuing(phone_msg, phone_num, phone_received_date);
                             //insert statement here                            
                         }
                     }
