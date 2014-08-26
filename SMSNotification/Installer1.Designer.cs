@@ -33,7 +33,7 @@
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.Description = "Copyright @ 2011 crclogs@gmail.com";
+            this.serviceInstaller1.Description = "Copyright @ 2014 crclogs@gmail.com";
             this.serviceInstaller1.ServiceName = "SmsNotification";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
