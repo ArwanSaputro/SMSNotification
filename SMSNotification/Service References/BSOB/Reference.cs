@@ -15,82 +15,25 @@ namespace SMSNotification.BSOB {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Surveys", Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfGetStoreType", Namespace="http://tempuri.org/", ItemName="getStoreType")]
     [System.SerializableAttribute()]
-    public partial class Surveys : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public class ArrayOfGetStoreType : System.Collections.Generic.List<SMSNotification.BSOB.getStoreType> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="getStoreType", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class getStoreType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TRACKINGTIMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string STORENAMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string STOREOWNERField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PHONENOField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ADDRESSField;
+        private string STORETYPEIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string STORETYPEField;
-        
-        private double LATITUDEField;
-        
-        private double LONGTITUDEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] IMAGE1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] IMAGE2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] IMAGE3Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] IMAGE4Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string QRCODEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PRODUCTDESCField;
-        
-        private double AMOUNTField;
-        
-        private int QUANTITYField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PRODUCTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SALESIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AREAIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PROVINCEIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AREAField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ORDERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string STOREIDField;
-        
-        private int STATUSORDERField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -103,84 +46,19 @@ namespace SMSNotification.BSOB {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string TRACKINGTIME {
+        public string STORETYPEID {
             get {
-                return this.TRACKINGTIMEField;
+                return this.STORETYPEIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.TRACKINGTIMEField, value) != true)) {
-                    this.TRACKINGTIMEField = value;
-                    this.RaisePropertyChanged("TRACKINGTIME");
+                if ((object.ReferenceEquals(this.STORETYPEIDField, value) != true)) {
+                    this.STORETYPEIDField = value;
+                    this.RaisePropertyChanged("STORETYPEID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IDField, value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string STORENAME {
-            get {
-                return this.STORENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.STORENAMEField, value) != true)) {
-                    this.STORENAMEField = value;
-                    this.RaisePropertyChanged("STORENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string STOREOWNER {
-            get {
-                return this.STOREOWNERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.STOREOWNERField, value) != true)) {
-                    this.STOREOWNERField = value;
-                    this.RaisePropertyChanged("STOREOWNER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string PHONENO {
-            get {
-                return this.PHONENOField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PHONENOField, value) != true)) {
-                    this.PHONENOField = value;
-                    this.RaisePropertyChanged("PHONENO");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string ADDRESS {
-            get {
-                return this.ADDRESSField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
-                    this.ADDRESSField = value;
-                    this.RaisePropertyChanged("ADDRESS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
         public string STORETYPE {
             get {
                 return this.STORETYPEField;
@@ -189,240 +67,6 @@ namespace SMSNotification.BSOB {
                 if ((object.ReferenceEquals(this.STORETYPEField, value) != true)) {
                     this.STORETYPEField = value;
                     this.RaisePropertyChanged("STORETYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
-        public double LATITUDE {
-            get {
-                return this.LATITUDEField;
-            }
-            set {
-                if ((this.LATITUDEField.Equals(value) != true)) {
-                    this.LATITUDEField = value;
-                    this.RaisePropertyChanged("LATITUDE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
-        public double LONGTITUDE {
-            get {
-                return this.LONGTITUDEField;
-            }
-            set {
-                if ((this.LONGTITUDEField.Equals(value) != true)) {
-                    this.LONGTITUDEField = value;
-                    this.RaisePropertyChanged("LONGTITUDE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public byte[] IMAGE1 {
-            get {
-                return this.IMAGE1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IMAGE1Field, value) != true)) {
-                    this.IMAGE1Field = value;
-                    this.RaisePropertyChanged("IMAGE1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public byte[] IMAGE2 {
-            get {
-                return this.IMAGE2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IMAGE2Field, value) != true)) {
-                    this.IMAGE2Field = value;
-                    this.RaisePropertyChanged("IMAGE2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
-        public byte[] IMAGE3 {
-            get {
-                return this.IMAGE3Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IMAGE3Field, value) != true)) {
-                    this.IMAGE3Field = value;
-                    this.RaisePropertyChanged("IMAGE3");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
-        public byte[] IMAGE4 {
-            get {
-                return this.IMAGE4Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IMAGE4Field, value) != true)) {
-                    this.IMAGE4Field = value;
-                    this.RaisePropertyChanged("IMAGE4");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
-        public string QRCODE {
-            get {
-                return this.QRCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.QRCODEField, value) != true)) {
-                    this.QRCODEField = value;
-                    this.RaisePropertyChanged("QRCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
-        public string PRODUCTDESC {
-            get {
-                return this.PRODUCTDESCField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
-                    this.PRODUCTDESCField = value;
-                    this.RaisePropertyChanged("PRODUCTDESC");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
-        public double AMOUNT {
-            get {
-                return this.AMOUNTField;
-            }
-            set {
-                if ((this.AMOUNTField.Equals(value) != true)) {
-                    this.AMOUNTField = value;
-                    this.RaisePropertyChanged("AMOUNT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
-        public int QUANTITY {
-            get {
-                return this.QUANTITYField;
-            }
-            set {
-                if ((this.QUANTITYField.Equals(value) != true)) {
-                    this.QUANTITYField = value;
-                    this.RaisePropertyChanged("QUANTITY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
-        public string PRODUCTID {
-            get {
-                return this.PRODUCTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PRODUCTIDField, value) != true)) {
-                    this.PRODUCTIDField = value;
-                    this.RaisePropertyChanged("PRODUCTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
-        public string SALESID {
-            get {
-                return this.SALESIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SALESIDField, value) != true)) {
-                    this.SALESIDField = value;
-                    this.RaisePropertyChanged("SALESID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
-        public string AREAID {
-            get {
-                return this.AREAIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AREAIDField, value) != true)) {
-                    this.AREAIDField = value;
-                    this.RaisePropertyChanged("AREAID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
-        public string PROVINCEID {
-            get {
-                return this.PROVINCEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PROVINCEIDField, value) != true)) {
-                    this.PROVINCEIDField = value;
-                    this.RaisePropertyChanged("PROVINCEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
-        public string AREA {
-            get {
-                return this.AREAField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AREAField, value) != true)) {
-                    this.AREAField = value;
-                    this.RaisePropertyChanged("AREA");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
-        public string ORDERID {
-            get {
-                return this.ORDERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERIDField, value) != true)) {
-                    this.ORDERIDField = value;
-                    this.RaisePropertyChanged("ORDERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
-        public string STOREID {
-            get {
-                return this.STOREIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.STOREIDField, value) != true)) {
-                    this.STOREIDField = value;
-                    this.RaisePropertyChanged("STOREID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=24)]
-        public int STATUSORDER {
-            get {
-                return this.STATUSORDERField;
-            }
-            set {
-                if ((this.STATUSORDERField.Equals(value) != true)) {
-                    this.STATUSORDERField = value;
-                    this.RaisePropertyChanged("STATUSORDER");
                 }
             }
         }
@@ -439,24 +83,24 @@ namespace SMSNotification.BSOB {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Products", Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetLogin", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
-    public partial class Products : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class GetLogin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IDField;
+        private string SALESIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PRODUCTCODEField;
+        private string AREAIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PRODUCTDESCField;
+        private string PROVINCEIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AMOUNTField;
+        private string AREAField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -469,53 +113,53 @@ namespace SMSNotification.BSOB {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ID {
+        public string SALESID {
             get {
-                return this.IDField;
+                return this.SALESIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.IDField, value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((object.ReferenceEquals(this.SALESIDField, value) != true)) {
+                    this.SALESIDField = value;
+                    this.RaisePropertyChanged("SALESID");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string PRODUCTCODE {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string AREAID {
             get {
-                return this.PRODUCTCODEField;
+                return this.AREAIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.PRODUCTCODEField, value) != true)) {
-                    this.PRODUCTCODEField = value;
-                    this.RaisePropertyChanged("PRODUCTCODE");
+                if ((object.ReferenceEquals(this.AREAIDField, value) != true)) {
+                    this.AREAIDField = value;
+                    this.RaisePropertyChanged("AREAID");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string PRODUCTDESC {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string PROVINCEID {
             get {
-                return this.PRODUCTDESCField;
+                return this.PROVINCEIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
-                    this.PRODUCTDESCField = value;
-                    this.RaisePropertyChanged("PRODUCTDESC");
+                if ((object.ReferenceEquals(this.PROVINCEIDField, value) != true)) {
+                    this.PROVINCEIDField = value;
+                    this.RaisePropertyChanged("PROVINCEID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string AMOUNT {
+        public string AREA {
             get {
-                return this.AMOUNTField;
+                return this.AREAField;
             }
             set {
-                if ((object.ReferenceEquals(this.AMOUNTField, value) != true)) {
-                    this.AMOUNTField = value;
-                    this.RaisePropertyChanged("AMOUNT");
+                if ((object.ReferenceEquals(this.AREAField, value) != true)) {
+                    this.AREAField = value;
+                    this.RaisePropertyChanged("AREA");
                 }
             }
         }
@@ -631,7 +275,7 @@ namespace SMSNotification.BSOB {
         private int QUANTITYField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SUMMARYField;
+        private string PRODUCTDESCField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -709,14 +353,904 @@ namespace SMSNotification.BSOB {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string SUMMARY {
+        public string PRODUCTDESC {
             get {
-                return this.SUMMARYField;
+                return this.PRODUCTDESCField;
             }
             set {
-                if ((object.ReferenceEquals(this.SUMMARYField, value) != true)) {
-                    this.SUMMARYField = value;
-                    this.RaisePropertyChanged("SUMMARY");
+                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
+                    this.PRODUCTDESCField = value;
+                    this.RaisePropertyChanged("PRODUCTDESC");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AllTask", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class AllTask : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STOREIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QRCODEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STOREOWNERField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ORDERIDField;
+        
+        private int STATUSORDERField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STOREID {
+            get {
+                return this.STOREIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STOREIDField, value) != true)) {
+                    this.STOREIDField = value;
+                    this.RaisePropertyChanged("STOREID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string QRCODE {
+            get {
+                return this.QRCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QRCODEField, value) != true)) {
+                    this.QRCODEField = value;
+                    this.RaisePropertyChanged("QRCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string STORENAME {
+            get {
+                return this.STORENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORENAMEField, value) != true)) {
+                    this.STORENAMEField = value;
+                    this.RaisePropertyChanged("STORENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string STOREOWNER {
+            get {
+                return this.STOREOWNERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STOREOWNERField, value) != true)) {
+                    this.STOREOWNERField = value;
+                    this.RaisePropertyChanged("STOREOWNER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string ORDERID {
+            get {
+                return this.ORDERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ORDERIDField, value) != true)) {
+                    this.ORDERIDField = value;
+                    this.RaisePropertyChanged("ORDERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int STATUSORDER {
+            get {
+                return this.STATUSORDERField;
+            }
+            set {
+                if ((this.STATUSORDERField.Equals(value) != true)) {
+                    this.STATUSORDERField = value;
+                    this.RaisePropertyChanged("STATUSORDER");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Scans", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Scans : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QRCODEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STOREOWNERField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PHONENOField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ADDRESSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORETYPEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTDESCField;
+        
+        private double AMOUNTField;
+        
+        private int QUANTITYField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string QRCODE {
+            get {
+                return this.QRCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QRCODEField, value) != true)) {
+                    this.QRCODEField = value;
+                    this.RaisePropertyChanged("QRCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STORENAME {
+            get {
+                return this.STORENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORENAMEField, value) != true)) {
+                    this.STORENAMEField = value;
+                    this.RaisePropertyChanged("STORENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STOREOWNER {
+            get {
+                return this.STOREOWNERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STOREOWNERField, value) != true)) {
+                    this.STOREOWNERField = value;
+                    this.RaisePropertyChanged("STOREOWNER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string PHONENO {
+            get {
+                return this.PHONENOField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PHONENOField, value) != true)) {
+                    this.PHONENOField = value;
+                    this.RaisePropertyChanged("PHONENO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string ADDRESS {
+            get {
+                return this.ADDRESSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
+                    this.ADDRESSField = value;
+                    this.RaisePropertyChanged("ADDRESS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string STORETYPE {
+            get {
+                return this.STORETYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORETYPEField, value) != true)) {
+                    this.STORETYPEField = value;
+                    this.RaisePropertyChanged("STORETYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string PRODUCTDESC {
+            get {
+                return this.PRODUCTDESCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
+                    this.PRODUCTDESCField = value;
+                    this.RaisePropertyChanged("PRODUCTDESC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public double AMOUNT {
+            get {
+                return this.AMOUNTField;
+            }
+            set {
+                if ((this.AMOUNTField.Equals(value) != true)) {
+                    this.AMOUNTField = value;
+                    this.RaisePropertyChanged("AMOUNT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        public int QUANTITY {
+            get {
+                return this.QUANTITYField;
+            }
+            set {
+                if ((this.QUANTITYField.Equals(value) != true)) {
+                    this.QUANTITYField = value;
+                    this.RaisePropertyChanged("QUANTITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string PRODUCTID {
+            get {
+                return this.PRODUCTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTIDField, value) != true)) {
+                    this.PRODUCTIDField = value;
+                    this.RaisePropertyChanged("PRODUCTID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Surveys", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Surveys : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STOREOWNERField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PHONENOField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ADDRESSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORETYPEField;
+        
+        private double LATITUDEField;
+        
+        private double LONGTITUDEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE3Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE4Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QRCODEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTDESCField;
+        
+        private double AMOUNTField;
+        
+        private int QUANTITYField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STOREIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STORENAME {
+            get {
+                return this.STORENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORENAMEField, value) != true)) {
+                    this.STORENAMEField = value;
+                    this.RaisePropertyChanged("STORENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STOREOWNER {
+            get {
+                return this.STOREOWNERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STOREOWNERField, value) != true)) {
+                    this.STOREOWNERField = value;
+                    this.RaisePropertyChanged("STOREOWNER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string PHONENO {
+            get {
+                return this.PHONENOField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PHONENOField, value) != true)) {
+                    this.PHONENOField = value;
+                    this.RaisePropertyChanged("PHONENO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string ADDRESS {
+            get {
+                return this.ADDRESSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
+                    this.ADDRESSField = value;
+                    this.RaisePropertyChanged("ADDRESS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string STORETYPE {
+            get {
+                return this.STORETYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORETYPEField, value) != true)) {
+                    this.STORETYPEField = value;
+                    this.RaisePropertyChanged("STORETYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public double LATITUDE {
+            get {
+                return this.LATITUDEField;
+            }
+            set {
+                if ((this.LATITUDEField.Equals(value) != true)) {
+                    this.LATITUDEField = value;
+                    this.RaisePropertyChanged("LATITUDE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public double LONGTITUDE {
+            get {
+                return this.LONGTITUDEField;
+            }
+            set {
+                if ((this.LONGTITUDEField.Equals(value) != true)) {
+                    this.LONGTITUDEField = value;
+                    this.RaisePropertyChanged("LONGTITUDE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public byte[] IMAGE1 {
+            get {
+                return this.IMAGE1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE1Field, value) != true)) {
+                    this.IMAGE1Field = value;
+                    this.RaisePropertyChanged("IMAGE1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public byte[] IMAGE2 {
+            get {
+                return this.IMAGE2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE2Field, value) != true)) {
+                    this.IMAGE2Field = value;
+                    this.RaisePropertyChanged("IMAGE2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public byte[] IMAGE3 {
+            get {
+                return this.IMAGE3Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE3Field, value) != true)) {
+                    this.IMAGE3Field = value;
+                    this.RaisePropertyChanged("IMAGE3");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public byte[] IMAGE4 {
+            get {
+                return this.IMAGE4Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE4Field, value) != true)) {
+                    this.IMAGE4Field = value;
+                    this.RaisePropertyChanged("IMAGE4");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public string QRCODE {
+            get {
+                return this.QRCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QRCODEField, value) != true)) {
+                    this.QRCODEField = value;
+                    this.RaisePropertyChanged("QRCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string PRODUCTDESC {
+            get {
+                return this.PRODUCTDESCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
+                    this.PRODUCTDESCField = value;
+                    this.RaisePropertyChanged("PRODUCTDESC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
+        public double AMOUNT {
+            get {
+                return this.AMOUNTField;
+            }
+            set {
+                if ((this.AMOUNTField.Equals(value) != true)) {
+                    this.AMOUNTField = value;
+                    this.RaisePropertyChanged("AMOUNT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
+        public int QUANTITY {
+            get {
+                return this.QUANTITYField;
+            }
+            set {
+                if ((this.QUANTITYField.Equals(value) != true)) {
+                    this.QUANTITYField = value;
+                    this.RaisePropertyChanged("QUANTITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=16)]
+        public string PRODUCTID {
+            get {
+                return this.PRODUCTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTIDField, value) != true)) {
+                    this.PRODUCTIDField = value;
+                    this.RaisePropertyChanged("PRODUCTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
+        public string STOREID {
+            get {
+                return this.STOREIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STOREIDField, value) != true)) {
+                    this.STOREIDField = value;
+                    this.RaisePropertyChanged("STOREID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReturnTransaksi", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class ReturnTransaksi : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STOREOWNERField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PHONENOField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ADDRESSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string STORETYPEField;
+        
+        private double LATITUDEField;
+        
+        private double LONGTITUDEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE3Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] IMAGE4Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTDESCField;
+        
+        private int QUANTITYField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STORENAME {
+            get {
+                return this.STORENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORENAMEField, value) != true)) {
+                    this.STORENAMEField = value;
+                    this.RaisePropertyChanged("STORENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string STOREOWNER {
+            get {
+                return this.STOREOWNERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STOREOWNERField, value) != true)) {
+                    this.STOREOWNERField = value;
+                    this.RaisePropertyChanged("STOREOWNER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string PHONENO {
+            get {
+                return this.PHONENOField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PHONENOField, value) != true)) {
+                    this.PHONENOField = value;
+                    this.RaisePropertyChanged("PHONENO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string ADDRESS {
+            get {
+                return this.ADDRESSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
+                    this.ADDRESSField = value;
+                    this.RaisePropertyChanged("ADDRESS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string STORETYPE {
+            get {
+                return this.STORETYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STORETYPEField, value) != true)) {
+                    this.STORETYPEField = value;
+                    this.RaisePropertyChanged("STORETYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public double LATITUDE {
+            get {
+                return this.LATITUDEField;
+            }
+            set {
+                if ((this.LATITUDEField.Equals(value) != true)) {
+                    this.LATITUDEField = value;
+                    this.RaisePropertyChanged("LATITUDE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public double LONGTITUDE {
+            get {
+                return this.LONGTITUDEField;
+            }
+            set {
+                if ((this.LONGTITUDEField.Equals(value) != true)) {
+                    this.LONGTITUDEField = value;
+                    this.RaisePropertyChanged("LONGTITUDE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public byte[] IMAGE1 {
+            get {
+                return this.IMAGE1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE1Field, value) != true)) {
+                    this.IMAGE1Field = value;
+                    this.RaisePropertyChanged("IMAGE1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public byte[] IMAGE2 {
+            get {
+                return this.IMAGE2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE2Field, value) != true)) {
+                    this.IMAGE2Field = value;
+                    this.RaisePropertyChanged("IMAGE2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public byte[] IMAGE3 {
+            get {
+                return this.IMAGE3Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE3Field, value) != true)) {
+                    this.IMAGE3Field = value;
+                    this.RaisePropertyChanged("IMAGE3");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public byte[] IMAGE4 {
+            get {
+                return this.IMAGE4Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMAGE4Field, value) != true)) {
+                    this.IMAGE4Field = value;
+                    this.RaisePropertyChanged("IMAGE4");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public string PRODUCTDESC {
+            get {
+                return this.PRODUCTDESCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
+                    this.PRODUCTDESCField = value;
+                    this.RaisePropertyChanged("PRODUCTDESC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
+        public int QUANTITY {
+            get {
+                return this.QUANTITYField;
+            }
+            set {
+                if ((this.QUANTITYField.Equals(value) != true)) {
+                    this.QUANTITYField = value;
+                    this.RaisePropertyChanged("QUANTITY");
                 }
             }
         }
@@ -1146,6 +1680,99 @@ namespace SMSNotification.BSOB {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Products", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Products : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTCODEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PRODUCTDESCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AMOUNTField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string PRODUCTCODE {
+            get {
+                return this.PRODUCTCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTCODEField, value) != true)) {
+                    this.PRODUCTCODEField = value;
+                    this.RaisePropertyChanged("PRODUCTCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string PRODUCTDESC {
+            get {
+                return this.PRODUCTDESCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PRODUCTDESCField, value) != true)) {
+                    this.PRODUCTDESCField = value;
+                    this.RaisePropertyChanged("PRODUCTDESC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string AMOUNT {
+            get {
+                return this.AMOUNTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AMOUNTField, value) != true)) {
+                    this.AMOUNTField = value;
+                    this.RaisePropertyChanged("AMOUNT");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BSOB.Service1Soap")]
     public interface Service1Soap {
@@ -1157,7 +1784,14 @@ namespace SMSNotification.BSOB {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelOrder", ReplyAction="*")]
         System.Threading.Tasks.Task<SMSNotification.BSOB.CancelOrderResponse> CancelOrderAsync(SMSNotification.BSOB.CancelOrderRequest request);
         
-        // CODEGEN: Generating message contract since element name ProductId from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name GetStoreTypeResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStoreType", ReplyAction="*")]
+        SMSNotification.BSOB.GetStoreTypeResponse GetStoreType(SMSNotification.BSOB.GetStoreTypeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStoreType", ReplyAction="*")]
+        System.Threading.Tasks.Task<SMSNotification.BSOB.GetStoreTypeResponse> GetStoreTypeAsync(SMSNotification.BSOB.GetStoreTypeRequest request);
+        
+        // CODEGEN: Generating message contract since element name Id from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ReturTransaction", ReplyAction="*")]
         SMSNotification.BSOB.ReturTransactionResponse ReturTransaction(SMSNotification.BSOB.ReturTransactionRequest request);
         
@@ -1170,13 +1804,6 @@ namespace SMSNotification.BSOB {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLogIn", ReplyAction="*")]
         System.Threading.Tasks.Task<SMSNotification.BSOB.GetLogInResponse> GetLogInAsync(SMSNotification.BSOB.GetLogInRequest request);
-        
-        // CODEGEN: Generating message contract since element name GetProductResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProduct", ReplyAction="*")]
-        SMSNotification.BSOB.GetProductResponse GetProduct(SMSNotification.BSOB.GetProductRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProduct", ReplyAction="*")]
-        System.Threading.Tasks.Task<SMSNotification.BSOB.GetProductResponse> GetProductAsync(SMSNotification.BSOB.GetProductRequest request);
         
         // CODEGEN: Generating message contract since element name SalesLogin from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReportList", ReplyAction="*")]
@@ -1220,13 +1847,6 @@ namespace SMSNotification.BSOB {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllTask", ReplyAction="*")]
         System.Threading.Tasks.Task<SMSNotification.BSOB.GetAllTaskResponse> GetAllTaskAsync(SMSNotification.BSOB.GetAllTaskRequest request);
         
-        // CODEGEN: Generating message contract since element name Id from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SingleData", ReplyAction="*")]
-        SMSNotification.BSOB.SingleDataResponse SingleData(SMSNotification.BSOB.SingleDataRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SingleData", ReplyAction="*")]
-        System.Threading.Tasks.Task<SMSNotification.BSOB.SingleDataResponse> SingleDataAsync(SMSNotification.BSOB.SingleDataRequest request);
-        
         // CODEGEN: Generating message contract since element name QRCode from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetScan", ReplyAction="*")]
         SMSNotification.BSOB.GetScanResponse GetScan(SMSNotification.BSOB.GetScanRequest request);
@@ -1240,6 +1860,13 @@ namespace SMSNotification.BSOB {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTaskDetail", ReplyAction="*")]
         System.Threading.Tasks.Task<SMSNotification.BSOB.GetTaskDetailResponse> GetTaskDetailAsync(SMSNotification.BSOB.GetTaskDetailRequest request);
+        
+        // CODEGEN: Generating message contract since element name StoreId from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTaskDetailReturn", ReplyAction="*")]
+        SMSNotification.BSOB.GetTaskDetailReturnResponse GetTaskDetailReturn(SMSNotification.BSOB.GetTaskDetailReturnRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTaskDetailReturn", ReplyAction="*")]
+        System.Threading.Tasks.Task<SMSNotification.BSOB.GetTaskDetailReturnResponse> GetTaskDetailReturnAsync(SMSNotification.BSOB.GetTaskDetailReturnRequest request);
         
         // CODEGEN: Generating message contract since element name Id from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetSmsNotificationStatus", ReplyAction="*")]
@@ -1295,6 +1922,13 @@ namespace SMSNotification.BSOB {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertTransaction", ReplyAction="*")]
         System.Threading.Tasks.Task<SMSNotification.BSOB.InsertTransactionResponse> InsertTransactionAsync(SMSNotification.BSOB.InsertTransactionRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetProductResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProduct", ReplyAction="*")]
+        SMSNotification.BSOB.GetProductResponse GetProduct(SMSNotification.BSOB.GetProductRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProduct", ReplyAction="*")]
+        System.Threading.Tasks.Task<SMSNotification.BSOB.GetProductResponse> GetProductAsync(SMSNotification.BSOB.GetProductRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1369,6 +2003,67 @@ namespace SMSNotification.BSOB {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetStoreTypeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStoreType", Namespace="http://tempuri.org/", Order=0)]
+        public SMSNotification.BSOB.GetStoreTypeRequestBody Body;
+        
+        public GetStoreTypeRequest() {
+        }
+        
+        public GetStoreTypeRequest(SMSNotification.BSOB.GetStoreTypeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetStoreTypeRequestBody {
+        
+        public GetStoreTypeRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetStoreTypeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStoreTypeResponse", Namespace="http://tempuri.org/", Order=0)]
+        public SMSNotification.BSOB.GetStoreTypeResponseBody Body;
+        
+        public GetStoreTypeResponse() {
+        }
+        
+        public GetStoreTypeResponse(SMSNotification.BSOB.GetStoreTypeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetStoreTypeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public SMSNotification.BSOB.ArrayOfGetStoreType GetStoreTypeResult;
+        
+        public GetStoreTypeResponseBody() {
+        }
+        
+        public GetStoreTypeResponseBody(SMSNotification.BSOB.ArrayOfGetStoreType GetStoreTypeResult) {
+            this.GetStoreTypeResult = GetStoreTypeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class ReturTransactionRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="ReturTransaction", Namespace="http://tempuri.org/", Order=0)]
@@ -1389,7 +2084,7 @@ namespace SMSNotification.BSOB {
     public partial class ReturTransactionRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string ProductId;
+        public string Id;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public byte[] DeliverSignature;
@@ -1397,8 +2092,8 @@ namespace SMSNotification.BSOB {
         public ReturTransactionRequestBody() {
         }
         
-        public ReturTransactionRequestBody(string ProductId, byte[] DeliverSignature) {
-            this.ProductId = ProductId;
+        public ReturTransactionRequestBody(string Id, byte[] DeliverSignature) {
+            this.Id = Id;
             this.DeliverSignature = DeliverSignature;
         }
     }
@@ -1499,74 +2194,13 @@ namespace SMSNotification.BSOB {
     public partial class GetLogInResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SMSNotification.BSOB.Surveys[] GetLogInResult;
+        public SMSNotification.BSOB.GetLogin[] GetLogInResult;
         
         public GetLogInResponseBody() {
         }
         
-        public GetLogInResponseBody(SMSNotification.BSOB.Surveys[] GetLogInResult) {
+        public GetLogInResponseBody(SMSNotification.BSOB.GetLogin[] GetLogInResult) {
             this.GetLogInResult = GetLogInResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetProductRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProduct", Namespace="http://tempuri.org/", Order=0)]
-        public SMSNotification.BSOB.GetProductRequestBody Body;
-        
-        public GetProductRequest() {
-        }
-        
-        public GetProductRequest(SMSNotification.BSOB.GetProductRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetProductRequestBody {
-        
-        public GetProductRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetProductResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProductResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SMSNotification.BSOB.GetProductResponseBody Body;
-        
-        public GetProductResponse() {
-        }
-        
-        public GetProductResponse(SMSNotification.BSOB.GetProductResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetProductResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SMSNotification.BSOB.Products[] GetProductResult;
-        
-        public GetProductResponseBody() {
-        }
-        
-        public GetProductResponseBody(SMSNotification.BSOB.Products[] GetProductResult) {
-            this.GetProductResult = GetProductResult;
         }
     }
     
@@ -2048,81 +2682,13 @@ namespace SMSNotification.BSOB {
     public partial class GetAllTaskResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SMSNotification.BSOB.Surveys[] GetAllTaskResult;
+        public SMSNotification.BSOB.AllTask[] GetAllTaskResult;
         
         public GetAllTaskResponseBody() {
         }
         
-        public GetAllTaskResponseBody(SMSNotification.BSOB.Surveys[] GetAllTaskResult) {
+        public GetAllTaskResponseBody(SMSNotification.BSOB.AllTask[] GetAllTaskResult) {
             this.GetAllTaskResult = GetAllTaskResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SingleDataRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SingleData", Namespace="http://tempuri.org/", Order=0)]
-        public SMSNotification.BSOB.SingleDataRequestBody Body;
-        
-        public SingleDataRequest() {
-        }
-        
-        public SingleDataRequest(SMSNotification.BSOB.SingleDataRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SingleDataRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string Id;
-        
-        public SingleDataRequestBody() {
-        }
-        
-        public SingleDataRequestBody(string Id) {
-            this.Id = Id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SingleDataResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SingleDataResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SMSNotification.BSOB.SingleDataResponseBody Body;
-        
-        public SingleDataResponse() {
-        }
-        
-        public SingleDataResponse(SMSNotification.BSOB.SingleDataResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SingleDataResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SMSNotification.BSOB.Surveys[] SingleDataResult;
-        
-        public SingleDataResponseBody() {
-        }
-        
-        public SingleDataResponseBody(SMSNotification.BSOB.Surveys[] SingleDataResult) {
-            this.SingleDataResult = SingleDataResult;
         }
     }
     
@@ -2188,12 +2754,12 @@ namespace SMSNotification.BSOB {
     public partial class GetScanResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SMSNotification.BSOB.Surveys[] GetScanResult;
+        public SMSNotification.BSOB.Scans[] GetScanResult;
         
         public GetScanResponseBody() {
         }
         
-        public GetScanResponseBody(SMSNotification.BSOB.Surveys[] GetScanResult) {
+        public GetScanResponseBody(SMSNotification.BSOB.Scans[] GetScanResult) {
             this.GetScanResult = GetScanResult;
         }
     }
@@ -2267,6 +2833,74 @@ namespace SMSNotification.BSOB {
         
         public GetTaskDetailResponseBody(SMSNotification.BSOB.Surveys[] GetTaskDetailResult) {
             this.GetTaskDetailResult = GetTaskDetailResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetTaskDetailReturnRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTaskDetailReturn", Namespace="http://tempuri.org/", Order=0)]
+        public SMSNotification.BSOB.GetTaskDetailReturnRequestBody Body;
+        
+        public GetTaskDetailReturnRequest() {
+        }
+        
+        public GetTaskDetailReturnRequest(SMSNotification.BSOB.GetTaskDetailReturnRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetTaskDetailReturnRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string StoreId;
+        
+        public GetTaskDetailReturnRequestBody() {
+        }
+        
+        public GetTaskDetailReturnRequestBody(string StoreId) {
+            this.StoreId = StoreId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetTaskDetailReturnResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTaskDetailReturnResponse", Namespace="http://tempuri.org/", Order=0)]
+        public SMSNotification.BSOB.GetTaskDetailReturnResponseBody Body;
+        
+        public GetTaskDetailReturnResponse() {
+        }
+        
+        public GetTaskDetailReturnResponse(SMSNotification.BSOB.GetTaskDetailReturnResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetTaskDetailReturnResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public SMSNotification.BSOB.ReturnTransaksi[] GetTaskDetailReturnResult;
+        
+        public GetTaskDetailReturnResponseBody() {
+        }
+        
+        public GetTaskDetailReturnResponseBody(SMSNotification.BSOB.ReturnTransaksi[] GetTaskDetailReturnResult) {
+            this.GetTaskDetailReturnResult = GetTaskDetailReturnResult;
         }
     }
     
@@ -2844,6 +3478,67 @@ namespace SMSNotification.BSOB {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetProductRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProduct", Namespace="http://tempuri.org/", Order=0)]
+        public SMSNotification.BSOB.GetProductRequestBody Body;
+        
+        public GetProductRequest() {
+        }
+        
+        public GetProductRequest(SMSNotification.BSOB.GetProductRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetProductRequestBody {
+        
+        public GetProductRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetProductResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProductResponse", Namespace="http://tempuri.org/", Order=0)]
+        public SMSNotification.BSOB.GetProductResponseBody Body;
+        
+        public GetProductResponse() {
+        }
+        
+        public GetProductResponse(SMSNotification.BSOB.GetProductResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetProductResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public SMSNotification.BSOB.Products[] GetProductResult;
+        
+        public GetProductResponseBody() {
+        }
+        
+        public GetProductResponseBody(SMSNotification.BSOB.Products[] GetProductResult) {
+            this.GetProductResult = GetProductResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface Service1SoapChannel : SMSNotification.BSOB.Service1Soap, System.ServiceModel.IClientChannel {
     }
@@ -2897,14 +3592,37 @@ namespace SMSNotification.BSOB {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMSNotification.BSOB.GetStoreTypeResponse SMSNotification.BSOB.Service1Soap.GetStoreType(SMSNotification.BSOB.GetStoreTypeRequest request) {
+            return base.Channel.GetStoreType(request);
+        }
+        
+        public SMSNotification.BSOB.ArrayOfGetStoreType GetStoreType() {
+            SMSNotification.BSOB.GetStoreTypeRequest inValue = new SMSNotification.BSOB.GetStoreTypeRequest();
+            inValue.Body = new SMSNotification.BSOB.GetStoreTypeRequestBody();
+            SMSNotification.BSOB.GetStoreTypeResponse retVal = ((SMSNotification.BSOB.Service1Soap)(this)).GetStoreType(inValue);
+            return retVal.Body.GetStoreTypeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SMSNotification.BSOB.GetStoreTypeResponse> SMSNotification.BSOB.Service1Soap.GetStoreTypeAsync(SMSNotification.BSOB.GetStoreTypeRequest request) {
+            return base.Channel.GetStoreTypeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SMSNotification.BSOB.GetStoreTypeResponse> GetStoreTypeAsync() {
+            SMSNotification.BSOB.GetStoreTypeRequest inValue = new SMSNotification.BSOB.GetStoreTypeRequest();
+            inValue.Body = new SMSNotification.BSOB.GetStoreTypeRequestBody();
+            return ((SMSNotification.BSOB.Service1Soap)(this)).GetStoreTypeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SMSNotification.BSOB.ReturTransactionResponse SMSNotification.BSOB.Service1Soap.ReturTransaction(SMSNotification.BSOB.ReturTransactionRequest request) {
             return base.Channel.ReturTransaction(request);
         }
         
-        public string ReturTransaction(string ProductId, byte[] DeliverSignature) {
+        public string ReturTransaction(string Id, byte[] DeliverSignature) {
             SMSNotification.BSOB.ReturTransactionRequest inValue = new SMSNotification.BSOB.ReturTransactionRequest();
             inValue.Body = new SMSNotification.BSOB.ReturTransactionRequestBody();
-            inValue.Body.ProductId = ProductId;
+            inValue.Body.Id = Id;
             inValue.Body.DeliverSignature = DeliverSignature;
             SMSNotification.BSOB.ReturTransactionResponse retVal = ((SMSNotification.BSOB.Service1Soap)(this)).ReturTransaction(inValue);
             return retVal.Body.ReturTransactionResult;
@@ -2915,10 +3633,10 @@ namespace SMSNotification.BSOB {
             return base.Channel.ReturTransactionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SMSNotification.BSOB.ReturTransactionResponse> ReturTransactionAsync(string ProductId, byte[] DeliverSignature) {
+        public System.Threading.Tasks.Task<SMSNotification.BSOB.ReturTransactionResponse> ReturTransactionAsync(string Id, byte[] DeliverSignature) {
             SMSNotification.BSOB.ReturTransactionRequest inValue = new SMSNotification.BSOB.ReturTransactionRequest();
             inValue.Body = new SMSNotification.BSOB.ReturTransactionRequestBody();
-            inValue.Body.ProductId = ProductId;
+            inValue.Body.Id = Id;
             inValue.Body.DeliverSignature = DeliverSignature;
             return ((SMSNotification.BSOB.Service1Soap)(this)).ReturTransactionAsync(inValue);
         }
@@ -2928,7 +3646,7 @@ namespace SMSNotification.BSOB {
             return base.Channel.GetLogIn(request);
         }
         
-        public SMSNotification.BSOB.Surveys[] GetLogIn(string user, string pass) {
+        public SMSNotification.BSOB.GetLogin[] GetLogIn(string user, string pass) {
             SMSNotification.BSOB.GetLogInRequest inValue = new SMSNotification.BSOB.GetLogInRequest();
             inValue.Body = new SMSNotification.BSOB.GetLogInRequestBody();
             inValue.Body.user = user;
@@ -2948,29 +3666,6 @@ namespace SMSNotification.BSOB {
             inValue.Body.user = user;
             inValue.Body.pass = pass;
             return ((SMSNotification.BSOB.Service1Soap)(this)).GetLogInAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMSNotification.BSOB.GetProductResponse SMSNotification.BSOB.Service1Soap.GetProduct(SMSNotification.BSOB.GetProductRequest request) {
-            return base.Channel.GetProduct(request);
-        }
-        
-        public SMSNotification.BSOB.Products[] GetProduct() {
-            SMSNotification.BSOB.GetProductRequest inValue = new SMSNotification.BSOB.GetProductRequest();
-            inValue.Body = new SMSNotification.BSOB.GetProductRequestBody();
-            SMSNotification.BSOB.GetProductResponse retVal = ((SMSNotification.BSOB.Service1Soap)(this)).GetProduct(inValue);
-            return retVal.Body.GetProductResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SMSNotification.BSOB.GetProductResponse> SMSNotification.BSOB.Service1Soap.GetProductAsync(SMSNotification.BSOB.GetProductRequest request) {
-            return base.Channel.GetProductAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SMSNotification.BSOB.GetProductResponse> GetProductAsync() {
-            SMSNotification.BSOB.GetProductRequest inValue = new SMSNotification.BSOB.GetProductRequest();
-            inValue.Body = new SMSNotification.BSOB.GetProductRequestBody();
-            return ((SMSNotification.BSOB.Service1Soap)(this)).GetProductAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3143,7 +3838,7 @@ namespace SMSNotification.BSOB {
             return base.Channel.GetAllTask(request);
         }
         
-        public SMSNotification.BSOB.Surveys[] GetAllTask(string SalesId) {
+        public SMSNotification.BSOB.AllTask[] GetAllTask(string SalesId) {
             SMSNotification.BSOB.GetAllTaskRequest inValue = new SMSNotification.BSOB.GetAllTaskRequest();
             inValue.Body = new SMSNotification.BSOB.GetAllTaskRequestBody();
             inValue.Body.SalesId = SalesId;
@@ -3164,36 +3859,11 @@ namespace SMSNotification.BSOB {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMSNotification.BSOB.SingleDataResponse SMSNotification.BSOB.Service1Soap.SingleData(SMSNotification.BSOB.SingleDataRequest request) {
-            return base.Channel.SingleData(request);
-        }
-        
-        public SMSNotification.BSOB.Surveys[] SingleData(string Id) {
-            SMSNotification.BSOB.SingleDataRequest inValue = new SMSNotification.BSOB.SingleDataRequest();
-            inValue.Body = new SMSNotification.BSOB.SingleDataRequestBody();
-            inValue.Body.Id = Id;
-            SMSNotification.BSOB.SingleDataResponse retVal = ((SMSNotification.BSOB.Service1Soap)(this)).SingleData(inValue);
-            return retVal.Body.SingleDataResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SMSNotification.BSOB.SingleDataResponse> SMSNotification.BSOB.Service1Soap.SingleDataAsync(SMSNotification.BSOB.SingleDataRequest request) {
-            return base.Channel.SingleDataAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SMSNotification.BSOB.SingleDataResponse> SingleDataAsync(string Id) {
-            SMSNotification.BSOB.SingleDataRequest inValue = new SMSNotification.BSOB.SingleDataRequest();
-            inValue.Body = new SMSNotification.BSOB.SingleDataRequestBody();
-            inValue.Body.Id = Id;
-            return ((SMSNotification.BSOB.Service1Soap)(this)).SingleDataAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SMSNotification.BSOB.GetScanResponse SMSNotification.BSOB.Service1Soap.GetScan(SMSNotification.BSOB.GetScanRequest request) {
             return base.Channel.GetScan(request);
         }
         
-        public SMSNotification.BSOB.Surveys[] GetScan(string QRCode, string SalesId) {
+        public SMSNotification.BSOB.Scans[] GetScan(string QRCode, string SalesId) {
             SMSNotification.BSOB.GetScanRequest inValue = new SMSNotification.BSOB.GetScanRequest();
             inValue.Body = new SMSNotification.BSOB.GetScanRequestBody();
             inValue.Body.QRCode = QRCode;
@@ -3240,6 +3910,31 @@ namespace SMSNotification.BSOB {
             inValue.Body.QRCode = QRCode;
             inValue.Body.SalesId = SalesId;
             return ((SMSNotification.BSOB.Service1Soap)(this)).GetTaskDetailAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMSNotification.BSOB.GetTaskDetailReturnResponse SMSNotification.BSOB.Service1Soap.GetTaskDetailReturn(SMSNotification.BSOB.GetTaskDetailReturnRequest request) {
+            return base.Channel.GetTaskDetailReturn(request);
+        }
+        
+        public SMSNotification.BSOB.ReturnTransaksi[] GetTaskDetailReturn(string StoreId) {
+            SMSNotification.BSOB.GetTaskDetailReturnRequest inValue = new SMSNotification.BSOB.GetTaskDetailReturnRequest();
+            inValue.Body = new SMSNotification.BSOB.GetTaskDetailReturnRequestBody();
+            inValue.Body.StoreId = StoreId;
+            SMSNotification.BSOB.GetTaskDetailReturnResponse retVal = ((SMSNotification.BSOB.Service1Soap)(this)).GetTaskDetailReturn(inValue);
+            return retVal.Body.GetTaskDetailReturnResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SMSNotification.BSOB.GetTaskDetailReturnResponse> SMSNotification.BSOB.Service1Soap.GetTaskDetailReturnAsync(SMSNotification.BSOB.GetTaskDetailReturnRequest request) {
+            return base.Channel.GetTaskDetailReturnAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SMSNotification.BSOB.GetTaskDetailReturnResponse> GetTaskDetailReturnAsync(string StoreId) {
+            SMSNotification.BSOB.GetTaskDetailReturnRequest inValue = new SMSNotification.BSOB.GetTaskDetailReturnRequest();
+            inValue.Body = new SMSNotification.BSOB.GetTaskDetailReturnRequestBody();
+            inValue.Body.StoreId = StoreId;
+            return ((SMSNotification.BSOB.Service1Soap)(this)).GetTaskDetailReturnAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3459,6 +4154,29 @@ namespace SMSNotification.BSOB {
             inValue.Body.CreateBy = CreateBy;
             inValue.Body.detail = detail;
             return ((SMSNotification.BSOB.Service1Soap)(this)).InsertTransactionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMSNotification.BSOB.GetProductResponse SMSNotification.BSOB.Service1Soap.GetProduct(SMSNotification.BSOB.GetProductRequest request) {
+            return base.Channel.GetProduct(request);
+        }
+        
+        public SMSNotification.BSOB.Products[] GetProduct() {
+            SMSNotification.BSOB.GetProductRequest inValue = new SMSNotification.BSOB.GetProductRequest();
+            inValue.Body = new SMSNotification.BSOB.GetProductRequestBody();
+            SMSNotification.BSOB.GetProductResponse retVal = ((SMSNotification.BSOB.Service1Soap)(this)).GetProduct(inValue);
+            return retVal.Body.GetProductResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SMSNotification.BSOB.GetProductResponse> SMSNotification.BSOB.Service1Soap.GetProductAsync(SMSNotification.BSOB.GetProductRequest request) {
+            return base.Channel.GetProductAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SMSNotification.BSOB.GetProductResponse> GetProductAsync() {
+            SMSNotification.BSOB.GetProductRequest inValue = new SMSNotification.BSOB.GetProductRequest();
+            inValue.Body = new SMSNotification.BSOB.GetProductRequestBody();
+            return ((SMSNotification.BSOB.Service1Soap)(this)).GetProductAsync(inValue);
         }
     }
 }

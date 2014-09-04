@@ -16,10 +16,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetStoreType">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStoreTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStoreTypeResult" type="tns:ArrayOfGetStoreType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGetStoreType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="getStoreType" nillable="true" type="tns:getStoreType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="getStoreType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPEID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="ReturTransaction">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DeliverSignature" type="s:base64Binary" />
           </s:sequence>
         </s:complexType>
@@ -42,65 +63,21 @@
       <s:element name="GetLogInResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetLogInResult" type="tns:ArrayOfSurveys" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetLogInResult" type="tns:ArrayOfGetLogin" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfSurveys">
+      <s:complexType name="ArrayOfGetLogin">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Surveys" nillable="true" type="tns:Surveys" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GetLogin" nillable="true" type="tns:GetLogin" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Surveys">
+      <s:complexType name="GetLogin">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="TRACKINGTIME" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ADDRESS" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="LATITUDE" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="LONGTITUDE" type="s:double" />
-          <s:element minOccurs="0" maxOccurs="1" name="IMAGE1" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="IMAGE2" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="IMAGE3" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="IMAGE4" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTID" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SALESID" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AREAID" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="PROVINCEID" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AREA" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="STOREID" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="STATUSORDER" type="s:int" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="GetProduct">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetProductResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetProductResult" type="tns:ArrayOfProducts" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfProducts">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Products" nillable="true" type="tns:Products" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Products">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetReportList">
@@ -155,7 +132,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="SUMMARY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="ReturnProduct">
@@ -230,24 +207,25 @@
       <s:element name="GetAllTaskResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllTaskResult" type="tns:ArrayOfSurveys" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTaskResult" type="tns:ArrayOfAllTask" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SingleData">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="SingleDataResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="SingleDataResult" type="tns:ArrayOfSurveys" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="ArrayOfAllTask">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AllTask" nillable="true" type="tns:AllTask" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AllTask">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="STOREID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ORDERID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="STATUSORDER" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetScan">
         <s:complexType>
           <s:sequence>
@@ -259,10 +237,30 @@
       <s:element name="GetScanResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetScanResult" type="tns:ArrayOfSurveys" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetScanResult" type="tns:ArrayOfScans" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfScans">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Scans" nillable="true" type="tns:Scans" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Scans">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetTaskDetail">
         <s:complexType>
           <s:sequence>
@@ -278,6 +276,70 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfSurveys">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Surveys" nillable="true" type="tns:Surveys" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Surveys">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LATITUDE" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LONGTITUDE" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE1" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE2" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE3" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE4" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="QRCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaskDetailReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskDetailReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaskDetailReturnResult" type="tns:ArrayOfReturnTransaksi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReturnTransaksi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReturnTransaksi" nillable="true" type="tns:ReturnTransaksi" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReturnTransaksi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STOREOWNER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHONENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STORETYPE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LATITUDE" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LONGTITUDE" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE1" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE2" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE3" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE4" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QUANTITY" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="SetSmsNotificationStatus">
         <s:complexType>
           <s:sequence>
@@ -444,6 +506,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetProduct">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductResult" type="tns:ArrayOfProducts" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProducts">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Products" nillable="true" type="tns:Products" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Products">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTDESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CancelOrderSoapIn">
@@ -451,6 +536,12 @@
   </wsdl:message>
   <wsdl:message name="CancelOrderSoapOut">
     <wsdl:part name="parameters" element="tns:CancelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStoreType" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStoreTypeResponse" />
   </wsdl:message>
   <wsdl:message name="ReturTransactionSoapIn">
     <wsdl:part name="parameters" element="tns:ReturTransaction" />
@@ -463,12 +554,6 @@
   </wsdl:message>
   <wsdl:message name="GetLogInSoapOut">
     <wsdl:part name="parameters" element="tns:GetLogInResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetProductSoapIn">
-    <wsdl:part name="parameters" element="tns:GetProduct" />
-  </wsdl:message>
-  <wsdl:message name="GetProductSoapOut">
-    <wsdl:part name="parameters" element="tns:GetProductResponse" />
   </wsdl:message>
   <wsdl:message name="GetReportListSoapIn">
     <wsdl:part name="parameters" element="tns:GetReportList" />
@@ -506,12 +591,6 @@
   <wsdl:message name="GetAllTaskSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllTaskResponse" />
   </wsdl:message>
-  <wsdl:message name="SingleDataSoapIn">
-    <wsdl:part name="parameters" element="tns:SingleData" />
-  </wsdl:message>
-  <wsdl:message name="SingleDataSoapOut">
-    <wsdl:part name="parameters" element="tns:SingleDataResponse" />
-  </wsdl:message>
   <wsdl:message name="GetScanSoapIn">
     <wsdl:part name="parameters" element="tns:GetScan" />
   </wsdl:message>
@@ -523,6 +602,12 @@
   </wsdl:message>
   <wsdl:message name="GetTaskDetailSoapOut">
     <wsdl:part name="parameters" element="tns:GetTaskDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskDetailReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaskDetailReturn" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskDetailReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskDetailReturnResponse" />
   </wsdl:message>
   <wsdl:message name="SetSmsNotificationStatusSoapIn">
     <wsdl:part name="parameters" element="tns:SetSmsNotificationStatus" />
@@ -572,10 +657,20 @@
   <wsdl:message name="InsertTransactionSoapOut">
     <wsdl:part name="parameters" element="tns:InsertTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="GetProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="CancelOrder">
       <wsdl:input message="tns:CancelOrderSoapIn" />
       <wsdl:output message="tns:CancelOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreType">
+      <wsdl:input message="tns:GetStoreTypeSoapIn" />
+      <wsdl:output message="tns:GetStoreTypeSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ReturTransaction">
       <wsdl:input message="tns:ReturTransactionSoapIn" />
@@ -584,10 +679,6 @@
     <wsdl:operation name="GetLogIn">
       <wsdl:input message="tns:GetLogInSoapIn" />
       <wsdl:output message="tns:GetLogInSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetProduct">
-      <wsdl:input message="tns:GetProductSoapIn" />
-      <wsdl:output message="tns:GetProductSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetReportList">
       <wsdl:input message="tns:GetReportListSoapIn" />
@@ -613,10 +704,6 @@
       <wsdl:input message="tns:GetAllTaskSoapIn" />
       <wsdl:output message="tns:GetAllTaskSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="SingleData">
-      <wsdl:input message="tns:SingleDataSoapIn" />
-      <wsdl:output message="tns:SingleDataSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetScan">
       <wsdl:input message="tns:GetScanSoapIn" />
       <wsdl:output message="tns:GetScanSoapOut" />
@@ -624,6 +711,10 @@
     <wsdl:operation name="GetTaskDetail">
       <wsdl:input message="tns:GetTaskDetailSoapIn" />
       <wsdl:output message="tns:GetTaskDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskDetailReturn">
+      <wsdl:input message="tns:GetTaskDetailReturnSoapIn" />
+      <wsdl:output message="tns:GetTaskDetailReturnSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SetSmsNotificationStatus">
       <wsdl:input message="tns:SetSmsNotificationStatusSoapIn" />
@@ -657,11 +748,24 @@
       <wsdl:input message="tns:InsertTransactionSoapIn" />
       <wsdl:output message="tns:InsertTransactionSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input message="tns:GetProductSoapIn" />
+      <wsdl:output message="tns:GetProductSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CancelOrder">
       <soap:operation soapAction="http://tempuri.org/CancelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreType">
+      <soap:operation soapAction="http://tempuri.org/GetStoreType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -680,15 +784,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetLogIn">
       <soap:operation soapAction="http://tempuri.org/GetLogIn" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetProduct">
-      <soap:operation soapAction="http://tempuri.org/GetProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -750,15 +845,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SingleData">
-      <soap:operation soapAction="http://tempuri.org/SingleData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetScan">
       <soap:operation soapAction="http://tempuri.org/GetScan" style="document" />
       <wsdl:input>
@@ -770,6 +856,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetTaskDetail">
       <soap:operation soapAction="http://tempuri.org/GetTaskDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskDetailReturn">
+      <soap:operation soapAction="http://tempuri.org/GetTaskDetailReturn" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -849,11 +944,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CancelOrder">
       <soap12:operation soapAction="http://tempuri.org/CancelOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreType">
+      <soap12:operation soapAction="http://tempuri.org/GetStoreType" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -872,15 +985,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetLogIn">
       <soap12:operation soapAction="http://tempuri.org/GetLogIn" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetProduct">
-      <soap12:operation soapAction="http://tempuri.org/GetProduct" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -942,15 +1046,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SingleData">
-      <soap12:operation soapAction="http://tempuri.org/SingleData" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetScan">
       <soap12:operation soapAction="http://tempuri.org/GetScan" style="document" />
       <wsdl:input>
@@ -962,6 +1057,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetTaskDetail">
       <soap12:operation soapAction="http://tempuri.org/GetTaskDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskDetailReturn">
+      <soap12:operation soapAction="http://tempuri.org/GetTaskDetailReturn" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1034,6 +1138,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertTransaction">
       <soap12:operation soapAction="http://tempuri.org/InsertTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap12:operation soapAction="http://tempuri.org/GetProduct" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
