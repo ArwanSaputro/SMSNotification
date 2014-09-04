@@ -109,6 +109,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\BSOB\Service1.wsdl" />
+    <None Include="Service References\BSOB\SMSNotification.BSOB.AllTask.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BSOB\SMSNotification.BSOB.ArrayOfGetStoreType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.CancelOrderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -116,6 +122,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.GetAllTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BSOB\SMSNotification.BSOB.GetLogin.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.GetLogInResponse.datasource">
@@ -136,7 +145,13 @@
     <None Include="Service References\BSOB\SMSNotification.BSOB.GetStoreByQRCodeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BSOB\SMSNotification.BSOB.GetStoreTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.GetTaskDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BSOB\SMSNotification.BSOB.GetTaskDetailReturnResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.InsertOrderResponse.datasource">
@@ -154,16 +169,19 @@
     <None Include="Service References\BSOB\SMSNotification.BSOB.ReturnProductResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BSOB\SMSNotification.BSOB.ReturnTransaksi.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.ReturTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BSOB\SMSNotification.BSOB.Scans.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.SetReplyStatusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.SetSmsNotificationStatusResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\BSOB\SMSNotification.BSOB.SingleDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BSOB\SMSNotification.BSOB.SMS.datasource">
