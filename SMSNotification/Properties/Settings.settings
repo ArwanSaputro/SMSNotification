@@ -12,10 +12,10 @@
       <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="interval" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">5000</Value>
+      <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="msg" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Terima kasih atas pembelian produk Bintang Sobo dg No Transaksi @Id pada tanggal @TrxDate. Info dan pemesanan: 081322072253</Value>
+      <Value Profile="(Default)">Terima kasih atas pembelian produk Bintang Sobo pada tanggal @TrxDate dg No Transaksi @Id. Info dan pemesanan: 081322072253</Value>
     </Setting>
   </Settings>
 </SettingsFile>

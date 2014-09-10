@@ -52,7 +52,7 @@ namespace SMSNotification.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public int interval {
             get {
                 return ((int)(this["interval"]));
@@ -61,8 +61,8 @@ namespace SMSNotification.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Terima kasih atas pembelian produk Bintang Sobo dg No Transaksi @Id pada tanggal " +
-            "@TrxDate. Info dan pemesanan: 081322072253")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Terima kasih atas pembelian produk Bintang Sobo pada tanggal @TrxDate dg No Trans" +
+            "aksi @Id. Info dan pemesanan: 081322072253")]
         public string msg {
             get {
                 return ((string)(this["msg"]));

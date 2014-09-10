@@ -49,6 +49,9 @@ namespace SMSNotification
             catch (Exception ex)
             {
                 LogError(ex.Message);
+
+                //if (Gsm.IsConnected() && Gsm.IsOpen())
+                //    Gsm.Close();
             }
         }
 
@@ -63,69 +66,89 @@ namespace SMSNotification
 
         public void ProcessAllMessage()
         {
-            BSOB.SMS[] allSms = bsob.SMSGetAll();
-
-            foreach (BSOB.SMS sms in allSms)
+            try
             {
-                Order(sms);
-                bsob.SetReplyStatus(sms.ID);
+                BSOB.SMS[] allSms = bsob.SMSGetAll();
+
+                foreach (BSOB.SMS sms in allSms)
+                {
+                    Order(sms);
+                    bsob.SetReplyStatus(sms.ID);
+                }
+            }
+            catch (Exception ex) 
+            {
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
         }
 
         private void Order(BSOB.SMS sms)
         {
-            string msg = sms.MESSAGE;
-
-            string[] msgSplit = msg.Split(new char[] { '#' });
-
-            if (msgSplit[0].ToString().ToLower().StartsWith("pesan"))
+            try
             {
-                string QRCode = msgSplit[1].ToString().ToLower();
-                string StoreId = "";
+                string msg = sms.MESSAGE;
 
-                if (!ValidateQRCode(QRCode, out StoreId))
+                string[] msgSplit = msg.Split(new char[] { '#' });
+
+                if (msgSplit[0].ToString().ToLower().StartsWith("pesan"))
                 {
-                    SendSms(sms.PHONENO, "Toko anda belum terdaftar.");
-                    //send sms invalid qrcode..
-                    return;
-                }
-                DateTime deliveryDate = new DateTime();
-                string strdeliveryDate = msgSplit[2].ToString();
+                    string QRCode = msgSplit[1].ToString().ToLower();
+                    string StoreId = "";
 
-                if (!ValidateDeliveryDate(strdeliveryDate, out deliveryDate))
-                {
-                    SendSms(sms.PHONENO, "Format tanggal salah. Silakan gunakan format tgl/bln/thn");
-                    //send sms wrong format date..
-                    return;
-                }
-
-
-                BSOB.OrderDetails[] orderDetail = null;
-
-                if (!ValidateOrderDetails(msgSplit, out orderDetail))
-                {
-                    string strListProduct = "";
-
-                    BSOB.Products[] prods = bsob.GetProduct();
-                    foreach (BSOB.Products prod in prods)
+                    if (!ValidateQRCode(QRCode, out StoreId))
                     {
-                        strListProduct += prod.PRODUCTCODE + ", ";
+                        SendSms(sms.PHONENO, "Toko anda belum terdaftar.");
+                        //send sms invalid qrcode..
+                        return;
                     }
-                    strListProduct = strListProduct.Substring(0, strListProduct.Length - 2);
+                    DateTime deliveryDate = new DateTime();
+                    string strdeliveryDate = msgSplit[2].ToString();
 
-                    SendSms(sms.PHONENO, "Kode produk tidak terdaftar. Kode produk yang benar adalah " + strListProduct);
-                    //send error product not exists..
-                    return;
+                    if (!ValidateDeliveryDate(strdeliveryDate, out deliveryDate))
+                    {
+                        SendSms(sms.PHONENO, "Format tanggal salah. Silakan gunakan format tgl/bln/thn");
+                        //send sms wrong format date..
+                        return;
+                    }
+
+
+                    BSOB.OrderDetails[] orderDetail = null;
+
+                    if (!ValidateOrderDetails(msgSplit, out orderDetail))
+                    {
+                        string strListProduct = "";
+
+                        BSOB.Products[] prods = bsob.GetProduct();
+                        foreach (BSOB.Products prod in prods)
+                        {
+                            strListProduct += prod.PRODUCTCODE + ", ";
+                        }
+                        strListProduct = strListProduct.Substring(0, strListProduct.Length - 2);
+
+                        SendSms(sms.PHONENO, "Kode produk tidak terdaftar. Kode produk yang benar adalah " + strListProduct);
+                        //send error product not exists..
+                        return;
+                    }
+
+                    string OrderId = "";
+                    bsob.InsertOrder(StoreId, sms.PHONENO, deliveryDate, orderDetail, out OrderId);
+                    SendSms(sms.PHONENO, "Terima kasih anda telah melakukan pemesanan produk Bintang Sobo. Data pemesanan anda telah kami simpan dengan No " + OrderId);
                 }
-
-                string OrderId = "";
-                bsob.InsertOrder(StoreId, sms.PHONENO, deliveryDate, orderDetail, out OrderId);
-                SendSms(sms.PHONENO, "Terima kasih anda telah melakukan pemesanan produk Bintang Sobo. Data pemesanan anda telah kami simpan dengan No " + OrderId);
+                else
+                {
+                    //send error message not valid..
+                    SendSms(sms.PHONENO, "Input salah. Format pemesanan: pesan#qrcode#tgl/bln/thn#kodeproduk1#jumlah1#kodeproduk2#jumlah2#kodeproduk3#jumlah3. Contoh: pesan#TokoABC#01/08/2014#TK300A#10");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //send error message not valid..
-                SendSms(sms.PHONENO, "Input salah. Format pemesanan: pesan#qrcode#tgl/bln/thn#kodeproduk1#jumlah1#kodeproduk2#jumlah2#kodeproduk3#jumlah3. Contoh: pesan#TokoABC#01/08/2014#TK300A#10");
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
         }
 
@@ -168,8 +191,13 @@ namespace SMSNotification
 
                 return true;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
+
                 orderDetail = null;
                 return false;
             }
@@ -191,8 +219,13 @@ namespace SMSNotification
 
                 return false;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
+
                 return false;
             }
         }
@@ -212,8 +245,12 @@ namespace SMSNotification
                 else
                     return false;                
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
 
                 return false;
             }
@@ -233,7 +270,12 @@ namespace SMSNotification
                 return true;
             }
             catch(Exception ex)
-            {                
+            {
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
+
                 return false;
             }
         }
@@ -245,9 +287,11 @@ namespace SMSNotification
                 sLogFormat = DateTime.Now.ToShortDateString().ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + " ==> ";
 
                 string sYear = DateTime.Now.Year.ToString();
-                string sMonth = DateTime.Now.Month.ToString();
-                string sDay = DateTime.Now.Day.ToString();
-                sErrorTime = sYear + sMonth + sDay;
+                string sMonth = "0" + DateTime.Now.Month.ToString();
+                string sDay = "0" + DateTime.Now.Day.ToString();
+                sErrorTime = sYear + sMonth.Substring(sMonth.Length - 2, 2) + sDay.Substring(sDay.Length - 2, 2);
+
+                
 
                 FileInfo fi = new FileInfo(errorLog);
 
@@ -256,7 +300,11 @@ namespace SMSNotification
                 sw.Flush();
                 sw.Close();
             }
-            catch { }
+            catch 
+            {
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
+            }
         }
 
 
@@ -271,7 +319,6 @@ namespace SMSNotification
                 timeout = Convert.ToInt32(timeout);
                 if (Connect(port, baudrate, timeout))
                 {
-
                     prods = bsob.GetProduct();
                     BSOB.Transaction[] transactions = bsob.GetAllTransaction();
                     
@@ -292,7 +339,7 @@ namespace SMSNotification
 
                     ProcessAllMessage();
 
-                    if (Gsm.IsOpen())
+                    if (Gsm.IsConnected() && Gsm.IsOpen())
                         Gsm.Close();
                 }
                 
@@ -300,7 +347,9 @@ namespace SMSNotification
             catch (Exception ex)
             {
                 LogError(ex.Message);
-                Gsm.Close();
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
             finally
             {
@@ -313,7 +362,6 @@ namespace SMSNotification
         {
 
         }
-
 
         public bool Connect(int comPort, int baudRate, int timeout)
         {
@@ -329,6 +377,10 @@ namespace SMSNotification
             catch (System.Exception ex)
             {
                 LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
+
                 return false;
             }
         }
@@ -350,6 +402,9 @@ namespace SMSNotification
             catch (Exception ex)
             {
                 LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
         }
 
@@ -357,15 +412,29 @@ namespace SMSNotification
         private string GetMessageStorage(MessageLocation Location)
         {
             string storage = string.Empty;
-            if (Location == MessageLocation.Sim)
-                storage = PhoneStorageType.Sim;
-            else
-                storage = PhoneStorageType.Phone;
 
-            if (storage.Length == 0)
-                throw new ApplicationException("Unknown message storage.");
-            else
+            try
+            {
+                
+                if (Location == MessageLocation.Sim)
+                    storage = PhoneStorageType.Sim;
+                else
+                    storage = PhoneStorageType.Phone;
+
+                if (storage.Length == 0)
+                    throw new ApplicationException("Unknown message storage.");
+                else
+                    return storage;
+            }
+            catch (Exception ex)
+            {
+                LogError(ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
+
                 return storage;
+            }
         }
 
         enum MessageLocation
@@ -395,8 +464,6 @@ namespace SMSNotification
                             string sim_msg = data.UserDataText;
                             DateTime sim_receive_date = data.SCTimestamp.ToDateTime();                
                             string sim_num = data.OriginatingAddress;
-
-
                             
                             //BSOB.SMS sms = new BSOB.SMS();
                             //sms.MESSAGE = sim_msg;
@@ -440,10 +507,10 @@ namespace SMSNotification
             }
             catch (Exception ex)
             {
-
-
                 LogError("GetAllMessagesFromAllStorage " + ex.Source + " " + ex.Message);
 
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
 
         }
@@ -480,6 +547,9 @@ namespace SMSNotification
             catch (Exception ex)
             {
                 LogError("GetAllMessagesByStorage " + ex.Source + " " + ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
 
         }
@@ -494,6 +564,9 @@ namespace SMSNotification
             catch (Exception ex)
             {
                 LogError("GsmComm_PhoneDisconnected " + ex.Source + " " + ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
 
         }
@@ -508,6 +581,9 @@ namespace SMSNotification
             catch (Exception ex)
             {
                 LogError("GsmComm_PhoneConnected " + ex.Source + " " + ex.Message);
+
+                if (Gsm.IsConnected() && Gsm.IsOpen())
+                    Gsm.Close();
             }
 
         }
